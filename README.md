@@ -1,23 +1,41 @@
-# Conociendo las Bases de vue3
+# Config Base webpack with Vue3
 
-## Project setup
+Configuracion Base Webpack, Babel con Vue3.js
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
+#### Dependencias Requeridas
 
 ```
-npm run start
+$ npm i vue@next vuex@next vue-router@4 --save
 ```
 
-### Compiles and minifies for production
+#### Dependencias Desarrollo
 
 ```
-npm run build
+$ npm i @babel/core babel-loader @babel/preset-env @vue/cli-plugin-babel @babel/plugin-transform-runtime  -D
+$ npm i html-loader html-webpack-plugin file-loader url-loader -D
+$ npm i mini-css-extract-plugin css-loader sass sass-loader -D
+$ npm i css-minimizer-webpack-plugin terser-webpack-plugin dotenv-webpack -D
+$ npm i webpack webpack-cli webpack-dev-server clean-webpack-plugin -D
 ```
 
-### Customize configuration
+#### Config file .babelrc
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+{
+  "presets": ["@babel/preset-env", "@vue/cli-plugin-babel/preset"],
+  "plugins": ["@babel/plugin-transform-runtime"]
+}
+
+```
+
+#### Config files webpack.config.dev.js and webpack.config.prod.js
+
+#### Config scripts in file package.json
+
+```
+{
+    "build": "webpack --config webpack.config.prod.js",
+    "dev": "webpack --config webpack.config.dev.js",
+    "start": "webpack serve --config webpack.config.dev.js"
+}
+```
