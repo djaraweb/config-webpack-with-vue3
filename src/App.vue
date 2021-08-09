@@ -1,10 +1,27 @@
 <template>
-  <div id="nav">
+  <Navbar />
+  <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+  </div> -->
+  <div class="container">
+    <router-view />
   </div>
-  <router-view />
 </template>
+
+<script>
+import Navbar from "@components/Navbar";
+export default {
+  components: {
+    Navbar,
+  },
+  setup() {
+    onMounted: {
+      console.log(localStorage.getItem("tareas"));
+    }
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
